@@ -20,6 +20,10 @@ AFRAME.registerComponent('shift-click-ui', {
     init: function() { 
 
         document.querySelector('a-scene').addEventListener(this.data.trigger, this.eventHandler.bind(this));
+        document.querySelector('a-scene').addEventListener('gripdown', this.eventHandler.bind(this))
+        document.querySelector('a-scene').addEventListener('triggerdown', this.eventHandler.bind(this))
+        document.querySelector('a-scene').addEventListener('collide', ()=>console.log('collide'))
+        
 
         this.cameraEl = document.querySelector('a-entity[camera]');
 
@@ -35,7 +39,9 @@ AFRAME.registerComponent('shift-click-ui', {
     },
 
     eventHandler: function(evt) {
-      if(evt.shiftKey) {
+      console.log('event:',evt)
+      evt.target.children[0] && console.log(evt.target.children[0].components.raycaster)
+      if(evt.shiftKey || event.type==="gripdown") {
         if (this.el.getAttribute('visible') === false) {
 
             var direction = this.zaxis.clone();
@@ -52,6 +58,8 @@ AFRAME.registerComponent('shift-click-ui', {
         } else if (this.el.getAttribute('visible') === true) {
             this.el.setAttribute('visible', false);
         }
+      } else if(evt.type==="triggerdown") {
+          event.target.emit('click', {}, true)
       }
     },
 

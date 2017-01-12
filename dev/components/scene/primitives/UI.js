@@ -588,7 +588,7 @@ class UI extends Component {
           <Entity layout="type: line; margin: 1.3" position="-2.8 -2 -1">
 
             <Text className="ui-element" text="<" visible={this.checkPrev(this.state.currView)}
-              onClick={()=>{
+                  onClick={()=>{
                 if(this.state.currView === 'feed') {
                   this.props.setScene(this.props.feed.followingPosts[this.state.currFeedSceneIndex - 1].content);
                   this.setState({ currFeedSceneIndex: this.state.currFeedSceneIndex - 1 })
