@@ -2,9 +2,9 @@ import 'aframe';
 import 'aframe-animation-component';
 import 'aframe-text-component';
 import 'babel-polyfill';
-import 'aframe-keyboard-controls';
-import 'aframe-mouse-cursor-component';
 import './acomps/create_preview';
+import 'aframe-extras.json-model';
+import 'aframe-vive-cursor-component'
 
 import {Entity, Scene} from 'aframe-react';
 import React, { Component } from 'react';
