@@ -73,6 +73,14 @@ class World extends Component {
           </a-cursor>
         </Camera>
 
+        <a-entity hand-controls="left" vive-cursor json-model="src: url(https://cdn.aframe.io/controllers/oculus-hands/leftHand.json)">
+        </a-entity>
+        <a-entity hand-controls="right" vive-cursor json-model="src: url(https://cdn.aframe.io/controllers/oculus-hands/rightHand.json)">
+        </a-entity>
+
+        {/*<a-entity id='redbox' geometry="primitive: box; width: 1; height: 1; depth: 1" position="0 1 -3" material="color:red"
+                  animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"></a-entity>*/}
+
         <UI className='ui' visible='false' zpos='-1' exit={this.props.exitVR} user={this.props.viewedProfile}
             feed={this.props.userFeed} viewedUserPosts={this.props.userPosts}
             showFeed={this.state.showFeed} showUserPosts={this.state.showUserPosts}
